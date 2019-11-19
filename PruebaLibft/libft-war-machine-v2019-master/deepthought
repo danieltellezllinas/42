@@ -3,7 +3,7 @@ $> hostname; uname -msr
 c2r10s1.42madrid.com
 Darwin 18.6.0 x86_64
 $> date
-Tue 19 Nov 2019 18:59:43 CET
+Tue 19 Nov 2019 20:08:03 CET
 $> gcc --version
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.6.0
@@ -28,7 +28,7 @@ Norme check failed
 $> make re
 
 $> ls -la libft.a
--rw-r--r--  1 dtellez-  2019  33936 19 Nov 18:59 /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/dirlibft/libft.a
+-rw-r--r--  1 dtellez-  2019  33896 19 Nov 20:08 /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 
@@ -976,33 +976,18 @@ Diff OK :D
 = Test 3 ===================================================
 $> ./user_exe 03
 $> diff -U 3 user_output_test03 test03.output
---- /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/tests/Part2_functions/ft_substr/user_output_test03	2019-11-19 19:00:04.000000000 +0100$
-+++ /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/tests/Part2_functions/ft_substr/test03.output	2019-11-13 17:13:48.000000000 +0100$
-@@ -1 +0,0 @@$
--NULL$
-\ No newline at end of file$
 
-Diff KO :(
+Diff OK :D
 = Test 4 ===================================================
 $> ./user_exe 04
 $> diff -U 3 user_output_test04 test04.output
---- /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/tests/Part2_functions/ft_substr/user_output_test04	2019-11-19 19:00:04.000000000 +0100$
-+++ /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/tests/Part2_functions/ft_substr/test04.output	2019-11-13 17:13:48.000000000 +0100$
-@@ -1 +0,0 @@$
--NULL$
-\ No newline at end of file$
 
-Diff KO :(
+Diff OK :D
 = Test 5 ===================================================
 $> ./user_exe 05
 $> diff -U 3 user_output_test05 test05.output
---- /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/tests/Part2_functions/ft_substr/user_output_test05	2019-11-19 19:00:04.000000000 +0100$
-+++ /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/tests/Part2_functions/ft_substr/test05.output	2019-11-13 17:13:48.000000000 +0100$
-@@ -1 +0,0 @@$
--l^L^Hàþ^?$
-\ No newline at end of file$
 
-Diff KO :(
+Diff OK :D
 
 = ft_strjoin.c =================================================================
 $> norminette ft_strjoin.c | grep -E '(Error|Warning)'
