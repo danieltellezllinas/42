@@ -6,17 +6,17 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:43:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/18 19:25:12 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:31:01 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_reverse(char *n)
+static char	*ft_reverse(char *n)
 {
 	char			aux[30];
-	int						i;
-	int						len;
+	int				i;
+	int				len;
 
 	i = 0;
 	len = ft_strlen(n) - 1;
@@ -36,15 +36,15 @@ static char		*ft_reverse(char *n)
 	return (n);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char				*num;
-	unsigned int	i;
+	unsigned int		i;
 	long int			n2;
 
 	n2 = n;
 	if (!(num = (char *)malloc(sizeof(char) * 30)))
-			return (NULL);
+		return (NULL);
 	i = 0;
 	if (n2 < 0)
 		n2 *= (-1);

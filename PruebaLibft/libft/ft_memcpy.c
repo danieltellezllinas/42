@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 09:16:41 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/14 13:25:03 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:25:44 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	str1 = (unsigned char *)dst;
 	str2 = (unsigned char *)src;
-
 	if (str1 == NULL && str2 == NULL)
 	{
 		return (dst);
