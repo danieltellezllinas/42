@@ -1,9 +1,9 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-c2r10s1.42madrid.com
+c2r12s1.42madrid.com
 Darwin 18.6.0 x86_64
 $> date
-Tue 19 Nov 2019 20:11:01 CET
+Wed 20 Nov 2019 13:27:34 CET
 $> gcc --version
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.6.0
@@ -17,18 +17,12 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 
 = libft.h=======================================================================
 $> norminette libft.h | grep -E '(Error|Warning)'
-Error: global scope bad aligned
-Error (line 16): wrong number of spaces in preprocessor indentation
-Error (line 16): wrong number of spaces in preprocessor line
-Error (line 17): wrong number of spaces in preprocessor indentation
-Error (line 56, col 4): bad spacing
-Norme check failed
 
 = Compiling libft ==============================================================
 $> make re
 
 $> ls -la libft.a
--rw-r--r--  1 dtellez-  2019  33896 19 Nov 20:11 /Users/dtellez-/Desktop/42/PruebaLibft/libft-war-machine-v2019-master/dirlibft/libft.a
+-rw-r--r--  1 dtellez-  2019  35512 20 Nov 13:27 /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 
