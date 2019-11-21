@@ -51,68 +51,17 @@ Diffs:
 ft_calloc:     [OK] [OK] [OK] [OK] [OK] 
 ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_split:      [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [KO] [KO] [OK] 
-[KO]: your itoa does not allocate the good size so the \0 test may be false
-Test code:
-	int size;
-	char *i1;
-
-	i1 = ft_itoa(-5859);
-	size = get_last_malloc_size();
-	if (size == 6)
-		exit(TEST_SUCCESS);
-	exit(TEST_KO);
-
-Diffs:
-        itoa: |6|
-     ft_itoa: |30|
-
-[KO]: your itoa does not allocate the good size so the \0 test may be false
-Test code:
-	int size;
-	char *i1;
-
-	i1 = ft_itoa(0);
-	size = get_last_malloc_size();
-	if (size == 2)
-		exit(TEST_SUCCESS);
-	exit(TEST_KO);
-
-Diffs:
-        itoa: |2|
-     ft_itoa: |30|
-
-ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
-ft_putchar_fd: [OK] [OK] [KO] 
-[KO]: your putchar_fd does not work with unicode
-Test code:
-	char buff[10];
-	char buff2[10];
-	int c = L'ø';
-	int len = 0;
-
-	putwchart(c, &len, buff2);
-	buff2[len] = 0;
-	fd_to_buffer(2);
-	ft_putchar_fd(c, 2);
-	write(2, "", 1);
-	get_fd_buffer(2, buff, 10);
-	if (!strcmp(buff, buff2))
-		exit(TEST_SUCCESS);
-	exit(TEST_KO);
-
-Diffs:
-  putchar_fd: |�|
-ft_putchar_fd: |ø|
-
-ft_putstr_fd:  [OK] [OK] {protected}
-ft_putendl_fd: [OK] [OK] {protected}
-ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
-ft_lstnew:     [OK] [OK] [OK] [OK] 
-ft_lstadd_front: [OK] [OK] [OK] 
+ft_strjoin:    [MISSING]
+ft_strtrim:    [MISSING]
+ft_split:      [MISSING]
+ft_itoa:       [MISSING]
+ft_strmapi:    [MISSING]
+ft_putchar_fd: [MISSING]
+ft_putstr_fd:  [MISSING]
+ft_putendl_fd: [MISSING]
+ft_putnbr_fd:  [MISSING]
+ft_lstnew:     [MISSING]
+ft_lstadd_front: [MISSING]
 ft_lstsize:    [MISSING]
 ft_lstlast:    [MISSING]
 ft_lstadd_back:[MISSING]
