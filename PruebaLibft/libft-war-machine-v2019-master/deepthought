@@ -3,7 +3,7 @@ $> hostname; uname -msr
 c2r12s4.42madrid.com
 Darwin 18.6.0 x86_64
 $> date
-Thu Nov 21 02:56:06 CET 2019
+Thu Nov 21 04:04:26 CET 2019
 $> gcc --version
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.6.0
@@ -20,20 +20,20 @@ $> norminette libft.h | grep -E '(Error|Warning)'
 
 = Compiling libft ==============================================================
 $> make re
-rm -f ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_strlen.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_strlcpy.o ft_strlcat.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o 
+rm -f ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_strlen.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_strlcpy.o ft_strlcat.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o 
 rm -f libft.a
-gcc  -c ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c
-ar rc libft.a	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_strlen.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_strlcpy.o ft_strlcat.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o
+gcc  -c ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c
+ar rc libft.a	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_strlen.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_strlcpy.o ft_strlcat.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o
 ranlib libft.a
 
 $> ls -la libft.a
--rw-r--r--  1 dtellez-  2019  21896 Nov 21 02:56 /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/dirlibft/libft.a
+-rw-r--r--  1 dtellez-  2019  22968 Nov 21 04:04 /Users/dtellez-/Desktop/PruebaLibft/libft-war-machine-v2019-master/dirlibft/libft.a
 
 = Part2_functions ==============================================================
 
-= ft_substr.c ==================================================================
-$> norminette ft_substr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_substr.c main.c libft.a -o user_exe
+= ft_strjoin.c =================================================================
+$> norminette ft_strjoin.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strjoin.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -53,10 +53,5 @@ Diff OK :D
 = Test 4 ===================================================
 $> ./user_exe 04
 $> diff -U 3 user_output_test04 test04.output
-
-Diff OK :D
-= Test 5 ===================================================
-$> ./user_exe 05
-$> diff -U 3 user_output_test05 test05.output
 
 Diff OK :D
