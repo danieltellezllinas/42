@@ -56,10 +56,31 @@ ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_split:      [MISSING]
 ft_itoa:       [MISSING]
 ft_strmapi:    [MISSING]
-ft_putchar_fd: [MISSING]
-ft_putstr_fd:  [MISSING]
-ft_putendl_fd: [MISSING]
-ft_putnbr_fd:  [MISSING]
+ft_putchar_fd: [OK] [OK] [KO] 
+[KO]: your putchar_fd does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(2);
+	ft_putchar_fd(c, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+  putchar_fd: |�|
+ft_putchar_fd: |ø|
+
+ft_putstr_fd:  [OK] [OK] {protected}
+ft_putendl_fd: [OK] [OK] {protected}
+ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
 ft_lstnew:     [MISSING]
 ft_lstadd_front: [MISSING]
 ft_lstsize:    [MISSING]
