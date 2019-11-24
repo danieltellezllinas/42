@@ -6,14 +6,14 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 12:14:10 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/21 19:29:00 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/24 14:27:08 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int				ft_istrlen(const char *s)
+static int		ft_istrlen(const char *s)
 {
 	int	i;
 
