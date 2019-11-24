@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:24:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/24 19:20:40 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/24 19:24:40 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ void			ft_putnbr_fd(int n, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+t_list			ft_lstnew(void const *content);
 #endif
