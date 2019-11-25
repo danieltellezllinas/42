@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 21:09:40 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/25 21:28:55 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/25 22:00:25 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list *tmp;
-	t_list *begin;
+	t_list	*tmp;
+	t_list	*begin;
 
 	if (lst)
 	{
