@@ -6,15 +6,15 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 21:01:34 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/24 21:20:53 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/25 20:44:23 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if(lst)
+	if (lst)
 		while (lst->next)
 			lst = lst->next;
 	return (lst);
