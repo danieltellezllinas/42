@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 21:41:15 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/25 21:41:19 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/26 20:29:46 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ char			*ft_strtrim(char const *s1, char const *s2)
 	size_t	j;
 	size_t	len;
 	char	*strtrim;
-	char	*set;
 
-	set = (char*)s2;
 	i = 0;
 	j = 0;
 	if (!s1 || !s2)
 		return (0);
 	len = ft_strlen(s1);
-	while (ft_clean(s1[i], set))
+	while (ft_clean(s1[i], (char*)s2))
 		i++;
-	while (len > 0 && ft_clean(s1[len - 1], set))
+	if (i == len)
+		return (ft_strdup(""));
+	while (len > 0 && ft_clean(s1[len - 1], (char*)s2))
 		len--;
 	if (len < i)
 		len = i;

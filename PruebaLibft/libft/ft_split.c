@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 14:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/24 14:26:23 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/11/26 20:29:08 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,15 @@ static char		**alloc_words(char *str, char c)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == c && str[i] != 0)
+		if (str[i] == c)
 		{
-			if (i == 0)
-				;
-			else if (str[i - 1] != c)
-				c_w++;
+			i++;
+			continue ;
 		}
-		i++;
-	}
-	if (str[i] == 0 && str[i - 1] != c && i != 0)
 		c_w++;
+		while (str[i] && str[i] != c)
+			i++;
+	}
 	if (!(split = ft_calloc(sizeof(char*), c_w + 1)))
 		return (NULL);
 	return (split);
@@ -70,7 +68,7 @@ char			**ft_split(char const *s, char c)
 	if (!s || !c)
 		return (NULL);
 	if (!*s)
-		return (split = ft_calloc(sizeof(char*), 1));
+		return (split = (char **)ft_calloc(sizeof(char*), 1));
 	str = (char*)s;
 	if (!(split = alloc_words(str, c)))
 		return (NULL);
