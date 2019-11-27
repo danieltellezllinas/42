@@ -5,73 +5,102 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/24 14:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/11/27 00:43:41 by dtellez-         ###   ########.fr       */
+/*   Created: 2019/11/27 22:29:43 by dtellez-          #+#    #+#             */
+/*   Updated: 2019/11/27 22:29:47 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**alloc_words(char *str, char c)
+static int		ft_countwords(char const *s, char c)
 {
-	int		c_w;
-	int		i;
-	char	**split;
+	int i;
+	int words;
 
-	c_w = 0;
 	i = 0;
-	while (str[i])
+	words = 0;
+	while (s[i])
 	{
-		if (str[i] == c)
+		if (s[i] == c)
 		{
 			i++;
 			continue ;
 		}
-		c_w++;
-		while (str[i] && str[i] != c)
+		words++;
+		while (s[i] && s[i] != c)
 			i++;
 	}
-	if (!(split = ft_calloc(sizeof(char*), c_w + 1)))
-		return (NULL);
-	return (split);
+	return (words);
 }
 
-static void		bucle(char *str, char c, char **split)
+static int		size_nextword(char const *s, char c, int i)
 {
-	int		i;
-	int		n;
-	int		j;
+	int counter;
 
+	while (s[i] == c && s[i])
+		i++;
+	counter = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (counter);
+		counter++;
+		i++;
+	}
+	return (counter);
+}
+
+static int		save_word(char *str, char const *s, char c, int i)
+{
+	int j;
+
+	j = 0;
+	while (s[i] == c)
+		i++;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			str[j] = '\0';
+			return (i);
+		}
+		str[j] = s[i];
+		j++;
+		i++;
+	}
+	str[j] = '\0';
+	return (i);
+}
+
+static char		**ft_split2(char const *s, char c, int max)
+{
+	int		j;
+	char	**tab;
+	int		i;
+
+	i = ft_countwords(s, c);
+	if (!(tab = (char **)malloc(sizeof(char *) * (i + 1))))
+		return (NULL);
+	tab[i] = NULL;
+	max = i;
 	i = 0;
 	j = 0;
-	while (str[i])
+	while (j < max)
 	{
-		n = 0;
-		while (str[i] == c)
-			i++;
-		while (str[i + n] != c && str[i + n])
-			n++;
-		if (str[i])
-		{
-			split[j] = ft_substr(str, i, n);
-			j++;
-		}
-		i += n;
+		if (!(tab[j] = malloc(sizeof(char) * (size_nextword(s, c, i) + 1))))
+			return (NULL);
+		i = save_word(tab[j], s, c, i);
+		j++;
 	}
+	return (tab);
 }
 
 char			**ft_split(char const *s, char c)
 {
-	char	*str;
-	char	**split;
+	int max;
 
-	if (!s || !c)
+	if (s == NULL)
 		return (NULL);
-	if (!*s)
-		return (split = (char **)ft_calloc(sizeof(char*), 1));
-	str = (char*)s;
-	if (!(split = alloc_words(str, c)))
-		return (NULL);
-	bucle(str, c, split);
-	return (split);
+	max = 0;
+	return (ft_split2(s, c, max));
 }
