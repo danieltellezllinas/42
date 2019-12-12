@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:18:00 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/12/10 20:06:00 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/12/12 18:46:50 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,27 @@
 
 int		get_next_line(int fd, char **line)
 {
-	char buf[10 + 1];
+	char 	buf[10 + 1];
+	//En esta variable amacenaremos los bytes que se han leído
+	int		byte_was_read;
+
+	//La función strnew nos creará un nuevo string el cual lo asignará con malloc 
+	//y con la longitud introducida relleno de ceros.
+	*line = ft_strnew(1);
 	//Con read lo que hago es leer el documento hasta llegar al número de buffer
-	read(fd, buf, 10);
-	//Le introduciremos un salto de línea porque sino se desbordará
-	buf[10] = '\0';
-	//Alocamos la memoria
-	*line = ft_strdup(buf);
+	//y nos devolverá un número
+	while((byte_was_read = read(fd, buf, 10)))
+	{
+		if (ft_strchr(buf, '\n'))
+		{
+			break;
+		}
+		//Le introduciremos un salto de línea porque sino se desbordará
+		buf[byte_was_read] = '\0';
+		//Con strjoin iremos juntando los trozos(debido a que sólo podemos recorrer hasta el buffer) 
+		//y los alocaremos en memoria
+		*line = ft_strjoin(*line, buf);
+	}
 	return (0);
 }
 
