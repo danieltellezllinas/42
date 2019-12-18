@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 19:42:13 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/12/12 18:44:52 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/12/18 17:44:27 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,31 @@ char	*ft_strchr(const char *s, int c)
 	return ((char*)&s[i]);
 }
 
-char	*ft_strnew(size_t size)
+char *ft_substr(char *s, size_t start, size_t len)
 {
-	char	*str;
+	char *dst;
+	int i;
+	size_t slen;
 
-	if (!(str = (char *)malloc(sizeof(char) * size + 1)))
+	i = 0;
+	if (!s)
+		return (0);
+	dst = malloc(sizeof(char) * len + 1);
+	if (dst == NULL)
 		return (NULL);
-	str[size] = '\0';
-	while (size--)
-		str[size] = '\0';
-	return (str);
+	slen = ft_strlen(s);
+	if (slen < start)
+	{
+		dst[i] = '\0';
+		return (dst);
+	}
+	while (len > 0 && s[start] != '\0')
+	{
+		dst[i] = s[start];
+		i++;
+		start++;
+		len--;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
