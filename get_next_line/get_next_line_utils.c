@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 19:42:13 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/12/18 17:44:27 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/12/22 13:18:57 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t		ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s1)
+char		*ft_strdup(const char *s1)
 {
 	char	*str;
 	int		i;
@@ -41,7 +41,7 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*string;
 	int		i;
@@ -69,7 +69,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (string);
 }
 
-char	*ft_strchr(const char *s, int c)
+char		*ft_strchr(const char *s, int c)
 {
 	int		i;
 
@@ -83,11 +83,11 @@ char	*ft_strchr(const char *s, int c)
 	return ((char*)&s[i]);
 }
 
-char *ft_substr(char *s, size_t start, size_t len)
+char		*ft_substr(char *s, size_t start, size_t len)
 {
-	char *dst;
-	int i;
-	size_t slen;
+	char	*dst;
+	int		i;
+	size_t	slen;
 
 	i = 0;
 	if (!s)

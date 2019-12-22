@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:18:00 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/12/18 18:21:29 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/12/22 13:16:20 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int		save_line(char **line_stc, char **line)
 {
 	int		i;
-	char *aux;
+	char	*aux;
 
 	i = 0;
 	while ((*line_stc)[i] != '\n' && (*line_stc)[i] != '\0')
@@ -24,21 +24,22 @@ static int		save_line(char **line_stc, char **line)
 	{
 		*line = ft_substr(*line_stc, 0, i);
 		aux = ft_strdup(&((*line_stc)[i + 1]));
-		free (*line_stc);
+		free(*line_stc);
 		*line_stc = aux;
 	}
 	else
 	{
 		*line = ft_strdup(*line_stc);
-		free (*line_stc);
+		free(*line_stc);
 		*line_stc = NULL;
 		return (0);
 	}
 	return (1);
 }
+
 int				get_next_line(int fd, char **line)
 {
-	char 	buf[BUFFER_SIZE + 1];
+	char			buf[BUFFER_SIZE + 1];
 	int				byte_was_read;
 	static char		*line_stc[4096];
 	char			*temp;
@@ -53,11 +54,11 @@ int				get_next_line(int fd, char **line)
 		else
 		{
 			temp = ft_strjoin(line_stc[fd], buf);
-			free (line_stc[fd]);
+			free(line_stc[fd]);
 			line_stc[fd] = temp;
 		}
 		if (ft_strchr(line_stc[fd], '\n'))
-			break;
+			break ;
 	}
 	if (byte_was_read < 0)
 		return (-1);
@@ -69,15 +70,3 @@ int				get_next_line(int fd, char **line)
 	else
 		return (save_line(&line_stc[fd], line));
 }
-/*
-int		main(void)
-{
-	char	*line;
-	int		fd;
-
-	//El primer parámetro que introducimos a open es el archivo de texto a leer y esta función nos lo abrirá
-	//el sólo lectura (O_RDONLY);
-	fd = open("text.txt", O_RDONLY);
-	while(get_next_line(fd, &line) > 0)
-		printf("%s\n", line);
-}*/
