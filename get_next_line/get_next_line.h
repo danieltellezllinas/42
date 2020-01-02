@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 19:41:48 by dtellez-          #+#    #+#             */
-/*   Updated: 2019/12/22 13:14:08 by dtellez-         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:48:21 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@
 #  define BUFFER_SIZE 8
 # endif
 
-char		*ft_strdup(const char *s1);
-size_t		ft_strlen(const char *s);
-char		*ft_strjoin(char const *s1, char const *s2);
-int			get_next_line(int fd, char **line);
-char		*ft_strchr(const char *s, int c);
-char		*ft_substr(char *s, size_t start, size_t len);
+typedef struct		s_global {
+	char			buf[BUFFER_SIZE + 1];
+	int				byte_was_read;
+	char			*line_stc[4096];
+	char			*temp;
+}					t_global;
+
+char				*ft_strdup(const char *s1);
+size_t				ft_strlen(const char *s);
+char				*ft_strjoin(char const *s1, char const *s2);
+int					get_next_line(int fd, char **line);
+char				*ft_strchr(const char *s, int c);
+char				*ft_substr(char *s, size_t start, size_t len);
 #endif
