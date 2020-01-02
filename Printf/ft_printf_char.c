@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_search.c                                        :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/02 17:38:51 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 18:50:45 by dtellez-         ###   ########.fr       */
+/*   Created: 2020/01/02 18:21:12 by dtellez-          #+#    #+#             */
+/*   Updated: 2020/01/02 19:10:41 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_search(t_printf *e)
+void            ft_printf_char(t_printf *e)
 {
-	if (*e->fmt == 'c')
-		ft_printf_char(e);
-	/*else if (*e->fmt == 's')
-		ft_printf_string(e);
-	else if (*e->fmt == 'i' || *e->fmt == 'd')
-		ft_printf_int(e);
-	else if (*e->fmt == 'u')
-		ft_printf_unsigned(e);
-	else if (*e->fmt == 'x' || *e->fmt == 'X')
-		ft_printf_number_hexadecimal(e);
-	else if (*e->fmt == 'p')
-		ft_printf_memory_direction(e);
-*/
+	char	c[2];
+
+	c[0] = (char)va_arg(e->ap, int);
+	c[1] = '\0';
+	ft_printf_finalstring(c, e);
 }
