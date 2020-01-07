@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 19:26:00 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/07 20:33:49 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,31 @@ int		ft_printf(const char *fmt, ...)
 
 int		main()
 {
-	char s = 'a';
+/*	char s = 'y';
 	int x = 0;
 	int y = 0;
 
 	x = printf("Printf ori:\n%c\n", s);
-	printf("%d\n", x);	
+	printf("%d\n", x);
 	y = ft_printf("Printf mio:\n%c\n", s);
+	printf("%d\n", y);
+*/
+/*
+	char *s = "yusmsd";
+	int x = 0;
+	int y = 0;
+
+	x = printf("Printf ori:\n%s\n", s);
+	printf("%d\n", x);	
+	y = ft_printf("Printf mio:\n%s\n", s);
+	printf("%d\n", y);
+*/
+	int s = 123994823;
+	int x = 0;
+  	int y = 0;
+
+	x = printf("Printf ori:\n%d\n", s);
+	printf("%d\n", x);
+	y = ft_printf("Printf mio:\n%d\n", s);
 	printf("%d\n", y);
 }

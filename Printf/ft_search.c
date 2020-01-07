@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:38:51 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 18:50:45 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/07 20:17:09 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void	ft_search(t_printf *e)
 {
 	if (*e->fmt == 'c')
 		ft_printf_char(e);
-	/*else if (*e->fmt == 's')
+	else if (*e->fmt == 's')
 		ft_printf_string(e);
 	else if (*e->fmt == 'i' || *e->fmt == 'd')
 		ft_printf_int(e);
+/*
 	else if (*e->fmt == 'u')
 		ft_printf_unsigned(e);
 	else if (*e->fmt == 'x' || *e->fmt == 'X')
