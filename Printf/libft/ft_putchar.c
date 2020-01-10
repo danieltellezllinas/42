@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_search.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd_unsigned.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/02 17:38:51 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 19:26:53 by dtellez-         ###   ########.fr       */
+/*   Created: 2020/01/10 19:55:53 by dtellez-          #+#    #+#             */
+/*   Updated: 2020/01/10 19:58:10 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_search(t_printf *e)
+void	ft_putchar(char c)
 {
-	if (*e->fmt == 'c')
-		ft_printf_char(e);
-	else if (*e->fmt == 's')
-		ft_printf_string(e);
-	else if (*e->fmt == 'i' || *e->fmt == 'd')
-		ft_printf_int(e);
-	else if (*e->fmt == 'u')
-		ft_printf_unsigned(e);
-	else if (*e->fmt == 'x' || *e->fmt == 'X')
-		ft_printf_number_hexadecimal(e);
-/*	else if (*e->fmt == 'p')
-		ft_printf_memory_direction(e);
-*/
+	write(1, &c, 1);
 }
