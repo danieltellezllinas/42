@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:38:51 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 19:26:53 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/10 21:27:09 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_search(t_printf *e)
 		ft_printf_unsigned(e);
 	else if (*e->fmt == 'x' || *e->fmt == 'X')
 		ft_printf_number_hexadecimal(e);
-/*	else if (*e->fmt == 'p')
+	else if (*e->fmt == 'p')
 		ft_printf_memory_direction(e);
-*/
 }

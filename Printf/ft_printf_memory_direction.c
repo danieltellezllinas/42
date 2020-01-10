@@ -6,10 +6,13 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:28:18 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 18:28:41 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/10 21:31:27 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void            ft_printf_memomy_direction(t_printf *e);
+void            ft_printf_memory_direction(t_printf *e)
+{
+
+}
