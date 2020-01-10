@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 20:45:00 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/10 21:04:40 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		main()
 	y = ft_printf("Printf mio:\n%u\n", s);
 	printf("%d\n", y);
 */
-	unsigned int s = 101;
+	unsigned int s = 10;
 	int x = 0;
 	int y = 0;
 
