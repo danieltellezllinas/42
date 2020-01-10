@@ -6,35 +6,22 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 19:25:25 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 19:02:26 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/10 19:07:46 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_negative(int *n, int *digits, int *neg)
-{
-	if (*n < 0)
-	{
-		*n *= -1;
-		*digits = *digits + 1;
-		*neg = 1;
-	}
-}
-
-char		*ft_itoa(int n)
+char		*ft_itoa_unsigned(unsigned int n)
 {
 	int		digits;
-	int		num;
+	unsigned int		num;
 	char	*str;
 	int		neg;
 
 	neg = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	num = n;
 	digits = 2;
-	ft_negative(&n, &digits, &neg);
 	while (num /= 10)
 		digits++;
 	if (!(str = (char *)malloc(sizeof(char) * digits)))

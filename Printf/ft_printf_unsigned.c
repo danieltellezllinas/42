@@ -6,10 +6,18 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:55 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 18:27:28 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/10 19:05:03 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void            ft_printf_unsigned(t_printf *e);
+void	ft_printf_unsigned(t_printf *e)
+{
+	unsigned int		i;
+	char 	*str;
+
+	i = (unsigned int)va_arg(e->ap, unsigned int);
+	str = ft_itoa_unsigned(i);
+	ft_printf_finalstring(str, e);
+}

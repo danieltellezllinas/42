@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:24:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 13:58:24 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/10 19:04:52 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)
 		(void *));
+char			*ft_itoa_unsigned(unsigned int n);
 #endif
