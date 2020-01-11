@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 19:35:13 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 20:11:13 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_string_create(int size_str, char c)
 	return (str);
 }
 
-void	ft_printf_int(t_printf *e)
+char	*ft_string_aux(t_printf *e)
 {
 	int		i;
 	char 	*str;
@@ -45,17 +45,18 @@ void	ft_printf_int(t_printf *e)
 
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
-	{
 		str_aux = ft_string_create(size_str, '0');
-	}
 	str_join = ft_strjoin(str_aux, str);
-
+	if (size_str > 0)
+		free(str_aux);
 	size_str = e->w - e->p;
 	if (size_str > 0)
-	{
 		str_aux = ft_string_create(size_str, ' ');
-	}
-	str_join = ft_strjoin(str_aux, str);
+	str_join = ft_strjoin(str_aux, str_join);	
+	return str_join;	
+}
 
-	ft_printf_finalstring(str_join, e);
+void	ft_printf_int(t_printf *e)
+{
+	ft_printf_finalstring(ft_string_aux(e), e);
 }
