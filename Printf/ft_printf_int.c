@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 19:31:14 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:35:13 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_printf_int(t_printf *e)
 	{
 		str_aux = ft_string_create(size_str, ' ');
 	}
-	str_join = ft_strjoin(str_aux, str_join);
+	str_join = ft_strjoin(str_aux, str);
 
 	ft_printf_finalstring(str_join, e);
 }
