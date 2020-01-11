@@ -6,11 +6,22 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 19:03:08 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 19:24:04 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 07:04:10 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void	ft_swap(char *str, t_printf *e)
+{
+	int     len;
+
+	len = ft_strlen(str);
+	if (e->p < len)
+		e->p = len;
+	if (e->w < e->p)
+		e->w = e->p;
+}
 
 void	ft_printf_finalstring(char *str, t_printf *e)
 {

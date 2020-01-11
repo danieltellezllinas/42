@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:27:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 21:18:47 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 07:02:59 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_printf_number_hexadecimal(t_printf *e)
 	i = va_arg(e->ap, unsigned int);
 	str = ft_convert_hex(i);
 	str_cpy = str;
+	//ft_swap(str, e);
 	if(*e->fmt == 'X')
 		ft_printf_finalstring(str, e);
 	else

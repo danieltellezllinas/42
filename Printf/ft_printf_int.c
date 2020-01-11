@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/07 20:49:56 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 07:04:16 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	ft_printf_int(t_printf *e)
 
 	i = va_arg(e->ap, int);
 	str = ft_itoa(i);
+	ft_swap(str, e);
 	ft_printf_finalstring(str, e);
 }
