@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 05:38:32 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 05:52:22 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_printf(const char *fmt, ...)
 		if (*e.fmt == '%')
 		{
 			e.fmt++;
-			if(ft_isdigit(*e.fmt) && *e.fmt != '0')
+			if((ft_isdigit(*e.fmt) && *e.fmt != '0') || *e.fmt == '*')
 				ft_calculate_width(&e);
 			ft_search(&e);
 			e.fmt++;
@@ -36,6 +36,7 @@ int		ft_printf(const char *fmt, ...)
 			e.fmt++;
 		}
 	}
+	printf("%d\n", e.w);
 	va_end(e.ap);
 	return (e.len);
 }
@@ -103,8 +104,8 @@ int		main()
 	int x = 0;
 	int y = 0;
 
-	x = printf("Printf ori:\n%7s\n", s);
+	x = printf("Printf ori:\n%*s\n", 7, s);
 	printf("%d\n", x);
-  	y = ft_printf("Printf mio:\n%7s\n", s);
+  	y = ft_printf("Printf mio:\n%*s\n", 7, s);
 	printf("%d\n", y);
 }
