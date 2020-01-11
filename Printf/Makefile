@@ -16,7 +16,10 @@ SRCS	=	ft_printf.c \
 			libft/ft_calloc.c \
 			libft/ft_bzero.c \
 			ft_printf_memory_direction.c \
-			libft/ft_strjoin.c
+			libft/ft_strjoin.c \
+			ft_utils.c \
+			ft_atoi.c \
+			ft_isdigit.c
 
 OBJS	:= ${SRCS:.c=.o}
 

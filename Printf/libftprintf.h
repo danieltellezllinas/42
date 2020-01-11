@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 13:37:07 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 21:29:50 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 05:18:34 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct	s_printf
 	va_list		ap;
 	char		*fmt;
 	int			len;
+	int			w;
+	int			p;
 }				t_printf;
 
 int				ft_printf(const char *fmt, ...);
@@ -36,4 +38,5 @@ void			ft_printf_unsigned(t_printf *e);
 void			ft_printf_number_hexadecimal(t_printf *e);
 void			ft_printf_memory_direction(t_printf *e);
 void			ft_printf_finalstring(char *c, t_printf *e);
+void            ft_calculate_width(t_printf *e);
 #endif

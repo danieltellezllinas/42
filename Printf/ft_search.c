@@ -6,11 +6,11 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:38:51 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 01:40:58 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 04:57:48 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void	ft_search(t_printf *e)
 {

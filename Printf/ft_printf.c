@@ -6,11 +6,11 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 21:27:07 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 05:38:32 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int		ft_printf(const char *fmt, ...)
 {
@@ -24,6 +24,8 @@ int		ft_printf(const char *fmt, ...)
 		if (*e.fmt == '%')
 		{
 			e.fmt++;
+			if(ft_isdigit(*e.fmt) && *e.fmt != '0')
+				ft_calculate_width(&e);
 			ft_search(&e);
 			e.fmt++;
 		}	
@@ -87,6 +89,7 @@ int		main()
 	y = ft_printf("Printf mio:\n%x\n", s);
 	printf("%d\n", y);
 */
+/*
 	unsigned int s = 10;
 	int x = 0;
 	int y = 0;
@@ -94,5 +97,14 @@ int		main()
 	x = printf("Printf ori:\n%p\n", &s);
 	printf("%d\n", x);
 	y = ft_printf("Printf mio:\n%p\n", &s);
+	printf("%d\n", y);
+*/
+	char *s = "adios";
+	int x = 0;
+	int y = 0;
+
+	x = printf("Printf ori:\n%7s\n", s);
+	printf("%d\n", x);
+  	y = ft_printf("Printf mio:\n%7s\n", s);
 	printf("%d\n", y);
 }
