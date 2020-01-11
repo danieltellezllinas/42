@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 20:11:13 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 21:05:17 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,26 @@ char	*ft_string_aux(t_printf *e)
 	int		size_str;
 	char	*str_aux;
 	char	*str_join;
+	int		is_negative;
 
+	is_negative = 0;
 	i = va_arg(e->ap, int);
 	str = ft_itoa(i);
 	ft_swap(str, e);
-
+	
+	if (*str == '-')
+	{
+		is_negative = 1;
+		str++;
+	}
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
 		str_aux = ft_string_create(size_str, '0');
 	str_join = ft_strjoin(str_aux, str);
 	if (size_str > 0)
 		free(str_aux);
+	if (is_negative == 1)
+		str_join = ft_strjoin("-", str_join);
 	size_str = e->w - e->p;
 	if (size_str > 0)
 		str_aux = ft_string_create(size_str, ' ');
