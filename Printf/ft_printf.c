@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 05:52:22 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 06:30:43 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_printf(const char *fmt, ...)
 			e.fmt++;
 		}
 	}
-	printf("%d\n", e.w);
+	printf("%d\n", e.p);
 	va_end(e.ap);
 	return (e.len);
 }
@@ -104,8 +104,8 @@ int		main()
 	int x = 0;
 	int y = 0;
 
-	x = printf("Printf ori:\n%*s\n", 7, s);
+	x = printf("Printf ori:\n%*.*s\n", 7, 7, s);
 	printf("%d\n", x);
-  	y = ft_printf("Printf mio:\n%*s\n", 7, s);
+  	y = ft_printf("Printf mio:\n%*.*s\n", 7, 7, s);
 	printf("%d\n", y);
 }
