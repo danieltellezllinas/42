@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:38:51 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 21:27:09 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 01:40:58 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_search(t_printf *e)
 {
-	if (*e->fmt == 'c')
+	if (*e->fmt == 'c' || *e->fmt == '%')
 		ft_printf_char(e);
 	else if (*e->fmt == 's')
 		ft_printf_string(e);

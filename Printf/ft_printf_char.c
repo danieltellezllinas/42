@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:21:12 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/02 19:26:28 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/11 01:48:49 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void            ft_printf_char(t_printf *e)
 {
 	char	c[2];
 
-	c[0] = (char)va_arg(e->ap, int);
+	if (*e->fmt == '%')
+		c[0] = '%';
+	else
+		c[0] = (char)va_arg(e->ap, int);
 	c[1] = '\0';
 	ft_printf_finalstring(c, e);
 }

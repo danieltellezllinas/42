@@ -1,19 +1,22 @@
  NAME	=	libftprintf.a
 
-SRCS	=	ft_convert_to_char.c \
-			ft_print_finalstring.c \
-			ft_print_hexadecimals.c \
-			ft_print_numbers.c \
+SRCS	=	ft_printf.c \
+			ft_search.c \
 			ft_printf_char.c \
-			libft/ft_putchar_fd.c \
-			libft/ft_atoi.c \
+			ft_printf_finalstring.c \
+			ft_printf_int.c \
+			ft_printf_string.c \
 			libft/ft_itoa.c \
-			libft/ft_isdigit.c \
 			libft/ft_strdup.c \
-			libft/ft_substr.c \
 			libft/ft_strlen.c \
-			libft/ft_strjoin.c \
-			ft_printf.c
+			ft_printf_number_hexadecimal.c \
+			ft_printf_unsigned.c \
+			libft/ft_itoa_unsigned.c \
+			libft/ft_convert_hex.c \
+			libft/ft_calloc.c \
+			libft/ft_bzero.c \
+			ft_printf_memory_direction.c \
+			libft/ft_strjoin.c
 
 OBJS	:= ${SRCS:.c=.o}
 
