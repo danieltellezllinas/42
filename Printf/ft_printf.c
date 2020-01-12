@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/12 01:30:55 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/12 02:00:21 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		ft_printf(const char *fmt, ...)
 		{
 			ft_reset_values(&e);
 			e.fmt++;
+			if (*e.fmt == '-')
+				e.text_left = 1;
 			if((ft_isdigit(*e.fmt) && *e.fmt != '0') || *e.fmt == '*' || *e.fmt == '.')
 				ft_calculate_width(&e);
 			ft_search(&e);
@@ -104,8 +106,8 @@ int		main()
 	int x = 0;
 	int y = 0;
 
-	x = printf("Printf ori:\n%.5d\n", s);
+	x = printf("Printf ori:\n%.5d\n%.5d\n", s, s);
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n%.5d\n", s);
+	y = ft_printf("Printf mio:\n%.5d\n%.5d\n", s, s);
 	printf("%d\n", y);
 }

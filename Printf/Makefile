@@ -6,7 +6,7 @@
 #    By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:11:07 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/11 15:11:14 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/12 01:55:48 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,3 +57,5 @@ fclean: clean
 	@rm -f $(NAME) $(NAMEB)
 
 re: fclean all
+	@clear
+	gcc ft_printf.c libftprintf.a && ./a.out	
