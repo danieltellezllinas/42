@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 21:02:07 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/12 01:12:42 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ int		main()
 	y = ft_printf("Printf mio:\n%p\n", &s);
 	printf("%d\n", y);
 */
-	int s = -123;
+	int s = 123;
 	int x = 0;
 	int y = 0;
 
-	x = printf("Printf ori:\n%800.230d\n", s);
+	x = printf("Printf ori:\n%*.*d\n", 7, 7, s);
 	printf("%d\n", x);
-  	y = ft_printf("Printf mio:\n%800.230d\n", s);
+	y = ft_printf("Printf mio:\n%*.*d\n", 7, 7, s);
 	printf("%d\n", y);
 }
