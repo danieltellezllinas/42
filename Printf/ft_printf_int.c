@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/12 01:28:12 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/12 03:12:11 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,15 @@ char	*ft_string_aux(t_printf *e)
 	if (is_negative == 1)
 		str_join = ft_strjoin("-", str_join);
 	size_str = e->w - e->p;
-	if (size_str > 0)
+	if (size_str > 0 && e->text_left == 0)
 	{
 		str_aux = ft_string_create(size_str, ' ');
 		str_join = ft_strjoin(str_aux, str_join);	
+	}
+	if (size_str > 0 && e->text_left == 1)
+	{
+		str_aux = ft_string_create(size_str, ' ');
+		str_join = ft_strjoin(str_join, str_aux);
 	}
 	return (str_join);	
 }
