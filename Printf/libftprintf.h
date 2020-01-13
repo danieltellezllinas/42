@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 13:37:07 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/12 03:08:54 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/13 15:20:18 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_printf
 	int			p;
 	int			len_swap;
 	int			text_left;
+	int			text_zero;
 }				t_printf;
 
 int				ft_printf(const char *fmt, ...);
