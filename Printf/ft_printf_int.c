@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/13 16:39:05 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:38:30 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_string_aux(t_printf *e)
 	char	*str_aux;
 	char	*str_join;
 	int		is_negative;
-	
+
 	str_join = "";
 	is_negative = 0;
 	i = va_arg(e->ap, int);
@@ -51,10 +51,15 @@ char	*ft_string_aux(t_printf *e)
 		str++;
 	}
 	size_str = e->p - e->len_swap;
-	if (size_str > 0)
+	if (size_str > 0 && e->text_zero == 0)
 	{
 		str_aux = ft_string_create(size_str, '0');
 		str_join = ft_strjoin(str_aux, str);
+	}
+	if (size_str > 0 && e->text_zero == 1)
+	{
+		str_aux = ft_string_create(size_str, '0');
+		str_join = ft_strjoin(str_join, str_aux);
 	}
 	if (size_str > 0)
 		free(str_aux);

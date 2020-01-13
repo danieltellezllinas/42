@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/13 16:40:52 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:26:21 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int		ft_printf(const char *fmt, ...)
 			if (*e.fmt == '-')
 			{
 				e.text_left = 1;
+				e.fmt++;
+			}
+			if (*e.fmt == '0')
+			{
+				e.text_zero = 1;
 				e.fmt++;
 			}
 			if((ft_isdigit(*e.fmt) && *e.fmt != '0') || *e.fmt == '*')
@@ -110,8 +115,8 @@ int		main()
 	int s = 123;
 	int x = 0;
 	int y = 0;
-	x = printf("Printf ori:\n|%-20.10d|\n", s);
+	x = printf("Printf ori:\n|%020.10d|\n", s);
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%-20.10d|\n", s);
+	y = ft_printf("Printf mio:\n|%020.10d|\n", s);
 	printf("%d\n", y);
 }
