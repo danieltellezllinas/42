@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/13 17:38:30 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/13 18:06:02 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ char	*ft_string_aux(t_printf *e)
 		str_aux = ft_string_create(size_str, '0');
 		str_join = ft_strjoin(str_aux, str);
 	}
-	if (size_str > 0 && e->text_zero == 1)
+	if (size_str > 0 && e->text_left == 0)
 	{
-		str_aux = ft_string_create(size_str, '0');
-		str_join = ft_strjoin(str_join, str_aux);
+		str_aux = ft_string_create(size_str, ' ');
+		str_join = ft_strjoin(str_aux, str);
 	}
 	if (size_str > 0)
 		free(str_aux);
@@ -68,17 +68,17 @@ char	*ft_string_aux(t_printf *e)
 		str_join = ft_strjoin("-", str_join);
 	}
 	size_str = e->w - e->p;
-	if (size_str > 0 && e->text_left == 0)
+	if (size_str > 0 && e->text_zero == 1)
 	{
-		str_aux = ft_string_create(size_str, ' ');
-		str_join = ft_strjoin(str_aux, str);
+		str_aux = ft_string_create(size_str, '0');
+		str_join = ft_strjoin(str_join, str_aux);
 	}
 	if (size_str > 0 && e->text_left == 1)
 	{
 		str_aux = ft_string_create(size_str, ' ');
 		str_join = ft_strjoin(str_join, str_aux);
 	}
-	return (str_join);	
+	return (str_join);
 }
 
 void	ft_printf_int(t_printf *e)
