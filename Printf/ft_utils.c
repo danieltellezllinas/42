@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 03:46:38 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 18:59:04 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/13 16:30:43 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,13 @@ void	ft_calculate_width(t_printf *e)
 		e->w = va_arg(e->ap, int);
 	else
 		e->w = ft_atoi(e->fmt);
-	while (ft_isdigit(*e->fmt) || *e->fmt == '*')
+	while (ft_isdigit(*e->fmt))
 		e->fmt++;
-	if (*e->fmt == '.')
-	{
-		e->fmt++;
-		ft_calculate_precision(e);
-	}
 }
 
 void	ft_calculate_precision(t_printf *e)
 {
+	e->fmt++;
 	if (*e->fmt == '*')
 		e->p = va_arg(e->ap, int);
 	else
@@ -41,4 +37,6 @@ void	ft_reset_values(t_printf *e)
 {
 	e->w = 0;
 	e->p = 0;
+	e->text_left = 0;
+	e->len_swap = 0;
 }
