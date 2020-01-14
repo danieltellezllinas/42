@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 03:46:38 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/13 17:51:56 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:40:25 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_calculate_width(t_printf *e)
 		e->w = va_arg(e->ap, int);
 	else
 		e->w = ft_atoi(e->fmt);
-	while (ft_isdigit(*e->fmt))
+	while (ft_isdigit(*e->fmt) || *e->fmt == '*')
 		e->fmt++;
 }
 
@@ -39,4 +39,5 @@ void	ft_reset_values(t_printf *e)
 	e->p = 0;
 	e->text_left = 0;
 	e->len_swap = 0;
+	e->text_zero = 0;
 }

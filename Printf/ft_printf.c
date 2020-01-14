@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/13 18:06:20 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:38:01 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int		ft_printf(const char *fmt, ...)
 			}
 			if (*e.fmt == '0')
 			{
-				e.text_zero = 1;
+				if (e.text_left == 0)
+					e.text_zero = 1;
 				e.fmt++;
 			}
 			if((ft_isdigit(*e.fmt) && *e.fmt != '0') || *e.fmt == '*')
@@ -118,8 +119,29 @@ int		main()
 	int s = 123;
 	int x = 0;
 	int y = 0;
-	x = printf("Printf ori:\n|%021d|\n", s);
+	x = printf("Printf ori:\n|%50d|\n", s);
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%021d|\n", s);
-	printf("%d\n", y);
+	y = ft_printf("Printf mio:\n|%50d|\n", s);
+	printf("%d\n\n", y);
+	x = printf("Printf ori:\n|%50.30d|\n", s);
+	printf("%d\n", x);
+	y = ft_printf("Printf mio:\n|%50.30d|\n", s);
+	printf("%d\n\n", y);
+	x = printf("Printf ori:\n|%-50d|\n", s);
+	printf("%d\n", x);
+	y = ft_printf("Printf mio:\n|%-50d|\n", s);
+	printf("%d\n\n", y);
+	x = printf("Printf ori:\n|%-40.23d|\n", s);
+	printf("%d\n", x);
+	y = ft_printf("Printf mio:\n|%-40.23d|\n", s);
+	printf("%d\n\n", y);
+	x = printf("Printf ori:\n|%0*.*d|\n", 10, 5, s);
+	printf("%d\n", x);
+	y = ft_printf("Printf mio:\n|%0*.*d|\n", 10, 5, s);
+	printf("%d\n\n", y);
+	x = printf("Printf ori:\n|%030d|\n", s);
+	printf("%d\n", x);
+	y = ft_printf("Printf mio:\n|%030d|\n", s);
+	printf("%d\n\n", y);
+	
 }

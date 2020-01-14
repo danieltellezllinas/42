@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/13 18:06:02 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:40:31 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_string_create(int size_str, char c)
+char	*ft_string_create(int size_str, char c, char *str)
 {
-	char	*str;
 	char	*aux;
 
+	if (str != NULL)
+		free(str);
 	if (!(str = (char *)malloc((size_str + 1) * sizeof(char))))
 		return (NULL);
 	str[size_str] = '\0';
@@ -34,51 +35,49 @@ char	*ft_string_create(int size_str, char c)
 char	*ft_string_aux(t_printf *e)
 {
 	int		i;
-	char 	*str;
+//	char 	*str;
 	int		size_str;
 	char	*str_aux;
-	char	*str_join;
+	char	*str;
 	int		is_negative;
 
-	str_join = "";
+	str_aux = 0;
 	is_negative = 0;
 	i = va_arg(e->ap, int);
 	str = ft_itoa(i);
-	ft_swap(str, e);
 	if (*str == '-')
 	{
 		is_negative = 1;
 		str++;
 	}
+	ft_swap(str, e);
 	size_str = e->p - e->len_swap;
-	if (size_str > 0 && e->text_zero == 0)
-	{
-		str_aux = ft_string_create(size_str, '0');
-		str_join = ft_strjoin(str_aux, str);
-	}
-	if (size_str > 0 && e->text_left == 0)
-	{
-		str_aux = ft_string_create(size_str, ' ');
-		str_join = ft_strjoin(str_aux, str);
-	}
 	if (size_str > 0)
-		free(str_aux);
+	{
+		str_aux = ft_string_create(size_str, '0', str_aux);
+		str = ft_strjoin(str_aux, str);
+	}
 	if (is_negative == 1)
 	{
-		str_join = ft_strjoin("-", str_join);
+		str = ft_strjoin("-", str);
 	}
 	size_str = e->w - e->p;
-	if (size_str > 0 && e->text_zero == 1)
-	{
-		str_aux = ft_string_create(size_str, '0');
-		str_join = ft_strjoin(str_join, str_aux);
+	if (size_str > 0 && e->text_left == 0 && e->text_zero == 0)
+	{	
+		str_aux = ft_string_create(size_str, ' ', str_aux);
+		str = ft_strjoin(str_aux, str);
 	}
-	if (size_str > 0 && e->text_left == 1)
+	else if (size_str > 0 && e->text_zero == 1)
 	{
-		str_aux = ft_string_create(size_str, ' ');
-		str_join = ft_strjoin(str_join, str_aux);
+		str_aux = ft_string_create(size_str, '0', str_aux);
+		str = ft_strjoin(str_aux, str);
 	}
-	return (str_join);
+	else if (size_str > 0 && e->text_left == 1)
+	{
+		str_aux = ft_string_create(size_str, ' ', str_aux);
+		str = ft_strjoin(str, str_aux);
+	}
+	return (str);
 }
 
 void	ft_printf_int(t_printf *e)
