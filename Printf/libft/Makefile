@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:12:03 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/11 15:12:09 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/16 15:42:20 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,6 @@ clean:
 fclean: clean
 		rm -f ${NAME}
 
-re: fclean ${NAME}
+re: fclean ${NAME} all
 
 .PHONY: all clean fclean re
