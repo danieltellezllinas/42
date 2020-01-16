@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/16 17:47:14 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/16 19:55:46 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_all_conditionals(t_printf *e, char *str_aux, char **str,
 int is_negative)
 {
 	int size_str;
-
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
 	{
