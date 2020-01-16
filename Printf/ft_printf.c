@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/16 16:49:42 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:46:09 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ int		main(void)
 	int x;
 	int y;
 
-	s = -14;
+	s = -54;
 	x = 0;
 	y = 0;
-	x = printf("Printf ori:\n|%7d|\n", s);
+	x = printf("Printf ori:\n|%07d|\n", s);
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%7d|\n", s);
+	y = ft_printf("Printf mio:\n|%07d|\n", s);
 	printf("%d\n\n", y);
 }
 */
