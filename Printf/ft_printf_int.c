@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/16 15:32:02 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/16 16:54:31 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int is_negative)
 	size_str = e->w - e->p;
 	if (size_str > 0 && e->text_left == 0 && e->text_zero == 0)
 	{
+		(is_negative == 1) ? size_str -= 1 : 0;
 		str_aux = ft_string_create(size_str, ' ', str_aux);
 		*str = ft_strjoin(str_aux, *str);
 	}

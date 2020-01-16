@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 19:03:08 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/15 16:48:32 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/16 16:53:54 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_printf_finalstring(char *str, t_printf *e)
 {
 	while (*str)
 	{
-		write (1, str, 1);
+		write(1, str, 1);
 		str++;
 		e->len++;
 	}
