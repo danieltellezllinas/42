@@ -6,12 +6,12 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 13:37:07 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 17:51:29 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 18:05:38 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -43,7 +43,7 @@ void			ft_printf_number_hexadecimal(t_printf *e);
 void			ft_printf_memory_direction(t_printf *e);
 void			ft_printf_finalstring(char *c, t_printf *e);
 void			ft_calculate_precision(t_printf *e);
-void            ft_calculate_width(t_printf *e);
+void			ft_calculate_width(t_printf *e);
 void			ft_swap(char *str, t_printf *e);
 void			ft_reset_values(t_printf *e);
 char			*ft_string_create(int size_str, char c, char *str);
