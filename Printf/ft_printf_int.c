@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/16 19:55:46 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 13:41:22 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,11 @@ char	*ft_string_aux(t_printf *e)
 	str_aux = 0;
 	is_negative = 0;
 	i = va_arg(e->ap, int);
-	str = ft_itoa(i);
+	if (e->p == 0 && i == 0)
+		str = ft_strdup("");
+	else
+		str = ft_itoa(i);
+	
 	if (*str == '-')
 	{
 		is_negative = 1;
