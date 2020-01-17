@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 13:41:22 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 15:20:45 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ char	*ft_string_aux(t_printf *e)
 		str = ft_strdup("");
 	else
 		str = ft_itoa(i);
-	
 	if (*str == '-')
 	{
 		is_negative = 1;

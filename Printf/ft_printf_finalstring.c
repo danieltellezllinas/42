@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 19:03:08 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 13:35:18 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 15:22:03 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	ft_swap(char *str, t_printf *e)
 
 void	ft_printf_finalstring(char *str, t_printf *e)
 {
-	//if (e->len_swap == 0)
-	//	return ;
 	while (*str)
 	{
 		write(1, str, 1);

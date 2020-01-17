@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 13:42:35 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 15:18:49 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int		ft_printf(const char *fmt, ...)
 		{
 			ft_reset_values(&e);
 			e.fmt++;
-			if (*e.fmt == '-')
-			{
-				e.text_left = 1;
-				e.fmt++;
-			}
 			if (*e.fmt == '0')
 			{
-				if (e.text_left == 0)
-					e.text_zero = 1;
+				e.text_zero = 1;
+				e.fmt++;
+			}
+			if (*e.fmt == '-')
+			{
+				e.text_zero = 0;
+				e.text_left = 1;
 				e.fmt++;
 			}
 			if ((ft_isdigit(*e.fmt) && *e.fmt != '0') || *e.fmt == '*')
@@ -57,7 +57,7 @@ int		ft_printf(const char *fmt, ...)
 	va_end(e.ap);
 	return (e.len);
 }
-
+/*
 int		main(void)
 {
 	int s;
@@ -71,4 +71,4 @@ int		main(void)
 	printf("%d\n", x);
 	y = ft_printf("Printf mio:\n|%5.0d|\n", s);
 	printf("%d\n\n", y);
-}
+}*/
