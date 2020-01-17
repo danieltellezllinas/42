@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 16:30:36 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 18:45:50 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int is_negative)
 	}
 }
 
-char	*ft_string_aux(t_printf *e)
+char	*ft_string_aux_int(t_printf *e)
 {
 	int		i;
 	char	*str_aux;
@@ -93,7 +93,34 @@ char	*ft_string_aux(t_printf *e)
 	return (str);
 }
 
+char	*ft_string_aux_unsigned_int(t_printf *e)
+{
+	unsigned int		i;
+	char				*str_aux;
+	char				*str;
+	int					is_negative;
+
+	str_aux = 0;
+	is_negative = 0;
+	i = va_arg(e->ap, int);
+	if (e->p == 0 && i == 0)
+		str = ft_strdup("");
+	else
+		str = ft_itoa_unsigned(i);
+	if (*str == '-')
+	{
+		is_negative = 1;
+		str++;
+	}
+	ft_swap(str, e);
+	ft_all_conditionals(e, str_aux, &str, is_negative);
+	return (str);
+}
+
 void	ft_printf_int(t_printf *e)
 {
-	ft_printf_finalstring(ft_string_aux(e), e);
+	if (*e->fmt == 'd' || *e->fmt == 'i')
+		ft_printf_finalstring(ft_string_aux_int(e), e);
+	else
+		ft_printf_finalstring(ft_string_aux_unsigned_int(e), e);
 }
