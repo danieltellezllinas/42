@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:21:12 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 01:48:49 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 17:44:27 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void            ft_printf_char(t_printf *e)
+void	ft_printf_char(t_printf *e)
 {
 	char	c[2];
 

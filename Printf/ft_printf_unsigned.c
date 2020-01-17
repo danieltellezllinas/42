@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:55 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/11 14:37:22 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 17:47:02 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_printf_unsigned(t_printf *e)
 {
 	unsigned int		i;
-	char 	*str;
+	char				*str;
 
 	i = (unsigned int)va_arg(e->ap, unsigned int);
 	str = ft_itoa_unsigned(i);

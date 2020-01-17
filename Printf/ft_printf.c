@@ -6,11 +6,38 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 16:27:43 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 17:52:35 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void	ft_flags(t_printf *e)
+{
+	ft_reset_values(e);
+	e->fmt++;
+	if (*e->fmt == '0')
+	{
+		e->text_zero = 1;
+		e->fmt++;
+	}
+	if (*e->fmt == '-')
+	{
+		e->text_zero = 0;
+		e->text_left = 1;
+		e->fmt++;
+	}
+	if ((ft_isdigit(*e->fmt) && *e->fmt != '0') || *e->fmt == '*')
+		ft_calculate_width(e);
+	if (*e->fmt == '.')
+	{
+		e->text_zero = 0;
+		ft_calculate_precision(e);
+	}
+	if (e->now_break == 0)
+		ft_search(e);
+	e->fmt++;
+}
 
 int		ft_printf(const char *fmt, ...)
 {
@@ -22,31 +49,7 @@ int		ft_printf(const char *fmt, ...)
 	while (*e.fmt != '\0')
 	{
 		if (*e.fmt == '%')
-		{
-			ft_reset_values(&e);
-			e.fmt++;
-			if (*e.fmt == '0')
-			{
-				e.text_zero = 1;
-				e.fmt++;
-			}
-			if (*e.fmt == '-')
-			{
-				e.text_zero = 0;
-				e.text_left = 1;
-				e.fmt++;
-			}
-			if ((ft_isdigit(*e.fmt) && *e.fmt != '0') || *e.fmt == '*')
-				ft_calculate_width(&e);
-			if (*e.fmt == '.')
-			{
-				e.text_zero = 0;
-				ft_calculate_precision(&e);
-			}
-			if (e.now_break == 0)
-				ft_search(&e);
-			e.fmt++;
-		}
+			ft_flags(&e);
 		else
 		{
 			write(1, e.fmt, 1);
@@ -57,18 +60,3 @@ int		ft_printf(const char *fmt, ...)
 	va_end(e.ap);
 	return (e.len);
 }
-/*
-int		main(void)
-{
-	int s;
-	int x;
-	int y;
-
-	s = 0;
-	x = 0;
-	y = 0;
-	x = printf("Printf ori:\n|%5.0d|\n", s);
-	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%5.0d|\n", s);
-	printf("%d\n\n", y);
-}*/
