@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 13:37:07 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/16 19:40:25 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/17 16:23:24 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void            ft_calculate_width(t_printf *e);
 void			ft_swap(char *str, t_printf *e);
 void			ft_reset_values(t_printf *e);
 char			*ft_string_create(int size_str, char c, char *str);
-
+void			ft_create_zero_and_space(char **str_aux, int size_str,
+				char simbol, char **str);
 #endif

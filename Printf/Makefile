@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:11:07 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/12 01:55:48 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/17 16:18:50 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ $(NAME):
 	@$(LIB) $(NAME) $(OBJS)
 	@echo "Compiling ft_printf..."
 	@$(RLIB) $(NAME)
+
+debug:
+	gcc -Wall -Wextra -Werror -g $(SRCS) ./libft/*.c -I ./libft
 
 .PHONY: all clean fclean
 
