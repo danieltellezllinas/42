@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:27:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 16:47:56 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/18 19:16:43 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,38 +69,25 @@ int is_negative)
 	}
 }
 
-char	*ft_string_aux_hex(t_printf *e)
+char	*ft_string_aux_hex(t_printf *e, unsigned int i,
+		char *str_aux, int is_negative)
 {
-	unsigned int		i;
-	char				*str_aux;
-	char				*str;
-	int					is_negative;
+	char *str;
 
-	str_aux = 0;
-	is_negative = 0;
-	i = va_arg(e->ap, int);
+	i = va_arg(e->ap, unsigned int);
 	if (e->p == 0 && i == 0)
-	{
 		str = ft_strdup("");
-	}
 	else
 	{
-		str = ft_itoa_unsigned(i);
 		if (*e->fmt == 'x')
 		{
 			str = ft_convert_hex(i);
-			i = 0;
-			while (str[i])
-			{
-				if (str[i] >= 'A' && str[i] <= 'F')
-					str[i] += 32;
-				i++;
-			}
+			i = -1;
+			while (str[++i])
+				(str[i] >= 'A' && str[i] <= 'F') ? str[i] += 32 : str[i];
 		}
 		else
-		{
 			str = ft_convert_hex(i);
-		}
 	}
 	if (*str == '-')
 	{
@@ -114,5 +101,12 @@ char	*ft_string_aux_hex(t_printf *e)
 
 void	ft_printf_number_hexadecimal(t_printf *e)
 {
-	ft_printf_finalstring(ft_string_aux_hex(e), e);
+	unsigned int		i;
+	char				*str_aux;
+	int					is_negative;
+
+	str_aux = 0;
+	is_negative = 0;
+	i = 0;
+	ft_printf_finalstring(ft_string_aux_hex(e, i, str_aux, is_negative), e);
 }
