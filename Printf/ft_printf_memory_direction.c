@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:28:18 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 20:00:43 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/18 21:05:10 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	ft_all_conditionals_memory(t_printf *e, char *str_aux, char **str,
 int is_negative)
 {
 	int size_str;
-
+	if (e->point == 1)
+		e->w = e->w - 2;
+	
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
 		ft_create_zero_and_space_memory(&str_aux, size_str, '0', str);
-	(is_negative == 1) ? *str = ft_strjoin("-", *str) : 0;
 	size_str = e->w - e->p;
-	(is_negative == 1) ? size_str -= 1 : 0;
 	if (size_str > 0 && e->text_left == 0 && e->text_zero == 0)
 		ft_create_zero_and_space_memory(&str_aux, size_str, ' ', str);
 	else if (size_str > 0 && e->text_zero == 1)
@@ -69,6 +69,8 @@ int is_negative)
 		str_aux = ft_string_create_memory(size_str, ' ', str_aux);
 		*str = ft_strjoin(*str, str_aux);
 	}
+	if (e->w < e->p)
+		*str = ft_strjoin("0x", *str);
 }
 
 char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
@@ -86,12 +88,9 @@ char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
 		while (str[++i])
 			(str[i] >= 'A' && str[i] <= 'F') ? str[i] += 32 : str[i];
 	}
-	if (*str == '-')
-	{
-		is_negative = 1;
-		str++;
-	}
-	str = ft_strjoin("0x", str);
+	//e->w = e->w - 2;
+	if (e->text_zero == 0 && e->w > e->p)
+		str = ft_strjoin("0x", str);
 	ft_swap(str, e);
 	ft_all_conditionals_memory(e, str_aux, &str, is_negative);
 	return (str);

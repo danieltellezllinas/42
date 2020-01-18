@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 19:07:47 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/18 20:52:56 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_flags(t_printf *e)
 		ft_calculate_width(e);
 	if (*e->fmt == '.')
 	{
+		e->point = 1;
 		e->text_zero = 0;
 		ft_calculate_precision(e);
 	}

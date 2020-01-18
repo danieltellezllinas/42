@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 13:37:07 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 19:37:11 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/18 20:53:14 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_printf
 	int			now_break;
 	char		*str_cpy_hex;
 	char		*str_hex;
+	int			point;
 }				t_printf;
 
 int				ft_printf(const char *fmt, ...);
