@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:27:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 19:32:29 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:47:56 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,27 @@ char	*ft_string_aux_hex(t_printf *e)
 	is_negative = 0;
 	i = va_arg(e->ap, int);
 	if (e->p == 0 && i == 0)
+	{
 		str = ft_strdup("");
-	else
-		str = ft_itoa_unsigned(i);
-	if (*e->fmt == 'x')
-		str = ft_convert_hex(i);
+	}
 	else
 	{
-		str = ft_convert_hex(i);
+		str = ft_itoa_unsigned(i);
+		if (*e->fmt == 'x')
+		{
+			str = ft_convert_hex(i);
+			i = 0;
+			while (str[i])
+			{
+				if (str[i] >= 'A' && str[i] <= 'F')
+					str[i] += 32;
+				i++;
+			}
+		}
+		else
+		{
+			str = ft_convert_hex(i);
+		}
 	}
 	if (*str == '-')
 	{
