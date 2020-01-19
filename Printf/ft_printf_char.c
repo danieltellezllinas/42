@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:21:12 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/19 19:32:37 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/19 19:39:51 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,14 @@ char	*ft_string_aux_char(t_printf *e, char c[2])
 		size_str = ft_strlen(c);
 	else
 		size_str = e->w - 1;
-	if (size_str > 0 && e->text_left == 0 && e->w >= 1)
+	if (size_str > 0 && e->text_left == 0 && e->w >= 1 && e->text_zero == 0)
 	{
 		str_aux = ft_string_create_char(size_str, ' ', str_aux);
+		aux = ft_strjoin(str_aux, c);
+	}
+	else if (size_str > 0 && e->text_zero == 1)
+	{
+		str_aux = ft_string_create(size_str, '0', str_aux);
 		aux = ft_strjoin(str_aux, c);
 	}
 	else if (size_str > 0 && e->text_left == 1 && e->w >= 1)
