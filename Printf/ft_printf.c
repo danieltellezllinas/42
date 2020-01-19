@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 20:52:56 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/19 18:16:51 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_flags(t_printf *e)
 {
 	ft_reset_values(e);
 	e->fmt++;
-	if (*e->fmt == '0')
+	while (*e->fmt == '0')
 	{
 		e->text_zero = 1;
 		e->fmt++;
@@ -27,7 +27,7 @@ void	ft_flags(t_printf *e)
 		e->text_left = 1;
 		e->fmt++;
 	}
-	if ((ft_isdigit(*e->fmt) && *e->fmt != '0') || *e->fmt == '*')
+	if (ft_isdigit(*e->fmt) || *e->fmt == '*')
 		ft_calculate_width(e);
 	if (*e->fmt == '.')
 	{
@@ -64,15 +64,16 @@ int		ft_printf(const char *fmt, ...)
 /*
 int		main(void)
 {
-	int s;
-	int x;
-	int y;
+	char	s;
+	int		x;
+	int		y;
 
-	s = 0;
+	s = 'a';
 	x = 0;
 	y = 0;
-	x = printf("Printf ori:\n|%x|\n", s);
+	x = printf("Printf ori:\n|%c|\n", s);
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%x|\n", s);
+	y = ft_printf("Printf mio:\n|%c|\n", s);
 	printf("%d\n\n", y);
-}*/
+}
+*/
