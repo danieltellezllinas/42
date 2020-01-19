@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 03:46:38 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/19 18:11:32 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/19 19:27:04 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	ft_reset_values(t_printf *e)
 	e->len_swap = 0;
 	e->text_zero = 0;
 	e->now_break = 0;
+	e->c_null = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:21:12 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/19 18:19:53 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/19 19:32:37 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_string_aux_char(t_printf *e, char c[2])
 	if (e->w == 0)
 		size_str = ft_strlen(c);
 	else
-		size_str = e->w - ft_strlen(c);
+		size_str = e->w - 1;
 	if (size_str > 0 && e->text_left == 0 && e->w >= 1)
 	{
 		str_aux = ft_string_create_char(size_str, ' ', str_aux);
@@ -66,7 +66,9 @@ void	ft_printf_char(t_printf *e)
 	if (*e->fmt == '%')
 		c[0] = '%';
 	else
-		c[0] = (char)va_arg(e->ap, int);
+		c[0] = va_arg(e->ap, int);
 	c[1] = '\0';
+	if (c[0] == '\0')
+		e->c_null = 1;
 	ft_printf_finalstring(ft_string_aux_char(e, c), e);
 }
