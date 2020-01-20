@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/20 15:04:41 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:09:03 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,3 @@ int		ft_printf(const char *fmt, ...)
 	va_end(e.ap);
 	return (e.len);
 }
-/*
-int		main(void)
-{
-	char	s;
-	int		x;
-	int		y;
-
-	s = 'a';
-	x = 0;
-	y = 0;
-	x = printf("Printf ori:\n|%35s|\n", "hello");
-	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%35s|\n", "hello");
-	printf("%d\n\n", y);
-}
-*/

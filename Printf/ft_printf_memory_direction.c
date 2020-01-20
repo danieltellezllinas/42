@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:28:18 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 21:05:10 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:08:20 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ void	ft_all_conditionals_memory(t_printf *e, char *str_aux, char **str,
 int is_negative)
 {
 	int size_str;
-	if (e->point == 1)
-		e->w = e->w - 2;
-	
+
+	(e->point == 1) ? e->w = e->w - 2 : 0;
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
 		ft_create_zero_and_space_memory(&str_aux, size_str, '0', str);
@@ -69,8 +68,7 @@ int is_negative)
 		str_aux = ft_string_create_memory(size_str, ' ', str_aux);
 		*str = ft_strjoin(*str, str_aux);
 	}
-	if (e->w < e->p)
-		*str = ft_strjoin("0x", *str);
+	(e->w < e->p) ? *str = ft_strjoin("0x", *str) : 0;
 }
 
 char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
@@ -88,7 +86,6 @@ char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
 		while (str[++i])
 			(str[i] >= 'A' && str[i] <= 'F') ? str[i] += 32 : str[i];
 	}
-	//e->w = e->w - 2;
 	if (e->text_zero == 0 && e->w > e->p)
 		str = ft_strjoin("0x", str);
 	ft_swap(str, e);
@@ -105,6 +102,5 @@ void	ft_printf_memory_direction(t_printf *e)
 	str_aux = 0;
 	is_negative = 0;
 	i = 0;
-
 	ft_printf_finalstring(ft_string_aux_memory(e, i, str_aux, is_negative), e);
 }

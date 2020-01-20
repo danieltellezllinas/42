@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/20 15:16:13 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:08:49 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,6 @@ void	ft_printf_int(t_printf *e)
 		e->text_left = 1;
 		e->text_zero = 0;
 	}
-
 	if (*e->fmt == 'd' || *e->fmt == 'i')
 		ft_printf_finalstring(ft_string_aux_int(e), e);
 	else
