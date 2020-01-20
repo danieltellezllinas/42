@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:26:20 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/17 18:45:50 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 15:16:13 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,13 @@ char	*ft_string_aux_unsigned_int(t_printf *e)
 
 void	ft_printf_int(t_printf *e)
 {
+	if (e->w < 0)
+	{
+		e->w = e->w * -1;
+		e->text_left = 1;
+		e->text_zero = 0;
+	}
+
 	if (*e->fmt == 'd' || *e->fmt == 'i')
 		ft_printf_finalstring(ft_string_aux_int(e), e);
 	else

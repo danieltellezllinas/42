@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:25:42 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/20 15:07:28 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 15:13:33 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ char	*ft_string_aux_string(char *c, t_printf *e)
 	char	*str;
 	int		is_negative;
 
+	if (e->w < 0)
+	{
+		e->w = e->w * -1;
+		e->text_left = 1;
+	}
 	if (c == NULL)
 		c = ft_strdup("(null)");
 	str_aux = 0;
