@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 19:03:08 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/19 19:29:07 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 15:04:37 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,18 @@ void	ft_swap(char *str, t_printf *e)
 		e->len_swap = 0;
 	else
 		e->len_swap = ft_strlen(str);
-	if (e->p < e->len_swap)
+	if (e->string == 1)
+	{
+		if (e->p >= 0 && e->p < e->len_swap)
+		{
+			e->len_swap = e->p;
+		}
+		else
+		{
+			e->p = e->len_swap;
+		}
+	}
+	else if (e->p < e->len_swap)
 		e->p = e->len_swap;
 	if (e->w < e->p)
 		e->w = e->p;

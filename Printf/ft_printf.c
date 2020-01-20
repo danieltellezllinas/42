@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/19 19:04:30 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/20 15:04:41 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int		main(void)
 	s = 'a';
 	x = 0;
 	y = 0;
-	x = printf("Printf ori:\n|%c|\n", '\0');
+	x = printf("Printf ori:\n|%35s|\n", "hello");
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%c|\n", '\0');
+	y = ft_printf("Printf mio:\n|%35s|\n", "hello");
 	printf("%d\n\n", y);
 }
 */
