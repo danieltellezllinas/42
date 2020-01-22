@@ -6,7 +6,7 @@
 #    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:12:03 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/16 15:42:20 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/22 12:34:43 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,35 +14,23 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c f
 
 SRCBONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-OBJ = ${SRC:.c=.o}
-
-OBJBONUS = ${SRCBONUS:.c=.o}
-
-NAME = libft.a
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
-
+OBJS		= ${SRCS:.c=.o}
+OBJS_BONUS	= ${BONUS:.c=.o}
+INCLUDES	=./
+NAME		= libft.a
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror -I. -c
+RM			= rm -f
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
-all: $(NAME)
-
-$(NAME):
-		${CC} ${FLAGS} -c ${SRC}
-		ar rc ${NAME}	${OBJ}
-		ranlib ${NAME}
-
-bonus:	
-		${CC} ${FLAGS} -c ${SRC} ${SRCBONUS}
-		ar rc ${NAME}	${OBJ} ${OBJBONUS}
-		ranlib ${NAME}
-
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+${NAME}:	${OBJS}
+			ar rc ${NAME} ${OBJS}
+bonus:		${OBJS} ${OBJS_BONUS}
+			ar rc ${NAME} ${OBJS_BONUS}
+all:	${NAME}
 clean:
-		rm -f ${OBJ} ${OBJBONUS}
-
-fclean: clean
-		rm -f ${NAME}
-
-re: fclean ${NAME} all
-
-.PHONY: all clean fclean re
+			${RM} ${OBJS} ${OBJS_BONUS}
+fclean:		clean
+			${RM} ${NAME}
+re:			fclean all
+.PHONY:		all clean fclean re

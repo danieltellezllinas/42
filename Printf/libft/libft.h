@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:24:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 20:58:55 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/22 11:26:35 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)
 		(void *));
 char			*ft_itoa_unsigned(unsigned int n);
 void			ft_putchar(char c);
-char    		*ft_convert_hex(unsigned long int n);
+char			*ft_convert_hex(unsigned long int n);
 #endif

@@ -6,7 +6,7 @@
 /*   By: dtellez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 19:25:25 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/10 19:07:46 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/22 11:23:58 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char		*ft_itoa_unsigned(unsigned int n)
 {
-	int		digits;
+	int					digits;
 	unsigned int		num;
-	char	*str;
-	int		neg;
+	char				*str;
+	int					neg;
 
 	neg = 0;
 	num = n;

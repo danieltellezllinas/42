@@ -6,7 +6,7 @@
 #    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:11:07 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/17 16:18:50 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/22 12:34:05 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,42 +23,29 @@ SRCS	=	ft_printf.c \
 			ft_printf_memory_direction.c \
 			ft_utils.c \
 
-CC			=	gcc
-FLAGS		=	-c -Wall -Wextra -Werror
-LIB			=	ar rc
-RLIB		=	ranlib
-OBJS		=	$(SRCS:.c=.o)
-LIBFT_DIR	=	libft/
-LIBFT		=	libft.a
+OBJS	:= ${SRCS:.c=.o}
 
-all: $(NAME)
+CC		= gcc
+CFLAGS	= -Wall -Werror -Wextra -I.
+RM		= rm -f
 
-$(NAME):
-	@make -C $(LIBFT_DIR)
-	@cp $(LIBFT_DIR)$(LIBFT) .
-	@mv $(LIBFT) $(NAME)
-	@echo "Reading ft_printf sources..."
-	@$(CC) $(FLAGS) $(SRCS)
-	@echo "Building ft_printf objects..."
-	@$(LIB) $(NAME) $(OBJS)
-	@echo "Compiling ft_printf..."
-	@$(RLIB) $(NAME)
+all:	${NAME}
 
+%.o: %.c
+		${CC} ${CFLAGS} -c $< -o $@
+%.o: libft/%.c
+	${CC} ${CFLAGS} -c $< -o $@
+${NAME}:${OBJS}
+		make -C libft
+		ar rc ${NAME} libft/*.o ${OBJS}
 debug:
-	gcc -Wall -Wextra -Werror -g $(SRCS) ./libft/*.c -I ./libft
-
-.PHONY: all clean fclean
+		$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft
 
 clean:
-	@make -C $(LIBFT_DIR) clean
-	@echo "Cleaning ft_printf objects..."
-	@rm -f $(OBJS) $(OBJSB)
+		${RM} ${OBJS}
 
 fclean: clean
-	@make -C $(LIBFT_DIR) fclean
-	@echo "Cleaning libftprintf.a"
-	@rm -f $(NAME) $(NAMEB)
+		${RM} ${NAME} libft/*.o *.o
 
-re: fclean all
-	@clear
-	gcc ft_printf.c libftprintf.a && ./a.out	
+re:		fclean all
+.PHONY: all clean fclean re
