@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:25:42 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/20 15:13:33 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:38:48 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*ft_string_aux_string(char *c, t_printf *e)
 	str_aux = 0;
 	is_negative = 0;
 	str = c;
-	ft_swap(str, e);
+	ft_swap(str, e, is_negative);
 	ft_all_conditionals_string(e, str_aux, &str, is_negative);
 	return (str);
 }

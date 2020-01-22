@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:28:18 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/20 16:08:20 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:39:50 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
 	}
 	if (e->text_zero == 0 && e->w > e->p)
 		str = ft_strjoin("0x", str);
-	ft_swap(str, e);
+	ft_swap(str, e, is_negative);
 	ft_all_conditionals_memory(e, str_aux, &str, is_negative);
 	return (str);
 }

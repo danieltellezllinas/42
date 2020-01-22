@@ -6,11 +6,9 @@
 #    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:11:07 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/22 12:34:05 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/22 16:21:24 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME	=	libftprintf.a
 
 SRCS	=	ft_printf.c \
 			ft_search.c \
@@ -23,29 +21,29 @@ SRCS	=	ft_printf.c \
 			ft_printf_memory_direction.c \
 			ft_utils.c \
 
-OBJS	:= ${SRCS:.c=.o}
+OBJ = ${SRCS:.c=.o}
 
-CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra -I.
-RM		= rm -f
+NAME = libftprintf.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I.
 
-all:	${NAME}
-
-%.o: %.c
+%.o:	%.c
 		${CC} ${CFLAGS} -c $< -o $@
-%.o: libft/%.c
-	${CC} ${CFLAGS} -c $< -o $@
-${NAME}:${OBJS}
+
+all:	$(NAME)
+
+$(NAME): ${OBJ}
 		make -C libft
-		ar rc ${NAME} libft/*.o ${OBJS}
+		ar rc ${NAME} libft/*.o ${OBJ}
+
 debug:
 		$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft
 
 clean:
-		${RM} ${OBJS}
+		rm -f ${OBJ}
 
-fclean: clean
-		${RM} ${NAME} libft/*.o *.o
+fclean:	clean
+		rm -f ${NAME} libft/*.o *.o
 
 re:		fclean all
-.PHONY: all clean fclean re
+.PHONY:	all clean fclean re

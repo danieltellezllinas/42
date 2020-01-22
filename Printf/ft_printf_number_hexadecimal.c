@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:27:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/18 19:16:43 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:39:14 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	*ft_string_aux_hex(t_printf *e, unsigned int i,
 		is_negative = 1;
 		str++;
 	}
-	ft_swap(str, e);
+	ft_swap(str, e, is_negative);
 	ft_all_conditionals_hex(e, str_aux, &str, is_negative);
 	return (str);
 }
