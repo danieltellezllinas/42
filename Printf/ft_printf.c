@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/22 17:08:20 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/22 17:17:36 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_flags(t_printf *e)
 	if (*e->fmt == '.')
 	{
 		ft_calculate_precision(e);
-		if(e->p < 0)
+		if (e->p < 0)
 			e->p = -1;
 		else
 		{
@@ -66,19 +66,18 @@ int		ft_printf(const char *fmt, ...)
 	va_end(e.ap);
 	return (e.len);
 }
-/*
+
 int		main(void)
 {
-	int s;
+	char s;
 	int x;
 	int y;
 
-	s = -1;
+	s = 0;
 	x = 0;
 	y = 0;
-	x = printf("Printf ori:\n|%03d|\n", s);
+	x = printf("Printf ori:\n|%-10c|\n", s);
 	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%03d|\n", s);
+	y = ft_printf("Printf mio:\n|%-10c|\n", s);
 	printf("%d\n\n", y);
 }
-*/
