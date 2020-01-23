@@ -6,11 +6,21 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 14:04:39 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/22 17:17:36 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/23 12:09:24 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void	what(t_printf *e)
+{
+	if (*e->fmt == '-')
+	{
+		e->text_zero = 0;
+		e->text_left = 1;
+		e->fmt++;
+	}
+}
 
 void	ft_flags(t_printf *e)
 {
@@ -21,12 +31,7 @@ void	ft_flags(t_printf *e)
 		e->text_zero = 1;
 		e->fmt++;
 	}
-	if (*e->fmt == '-')
-	{
-		e->text_zero = 0;
-		e->text_left = 1;
-		e->fmt++;
-	}
+	what(e);
 	if (ft_isdigit(*e->fmt) || *e->fmt == '*')
 		ft_calculate_width(e);
 	if (*e->fmt == '.')
@@ -65,19 +70,4 @@ int		ft_printf(const char *fmt, ...)
 	}
 	va_end(e.ap);
 	return (e.len);
-}
-
-int		main(void)
-{
-	char s;
-	int x;
-	int y;
-
-	s = 0;
-	x = 0;
-	y = 0;
-	x = printf("Printf ori:\n|%-10c|\n", s);
-	printf("%d\n", x);
-	y = ft_printf("Printf mio:\n|%-10c|\n", s);
-	printf("%d\n\n", y);
 }
