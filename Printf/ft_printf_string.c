@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:25:42 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/22 16:38:48 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/24 15:19:33 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ void	ft_printf_string(t_printf *e)
 {
 	char	*c;
 
+	if (e->w < 0)
+	{
+		e->w = e->w * -1;
+		e->text_left = 1;
+	}
 	e->string = 1;
 	c = va_arg(e->ap, char*);
 	ft_printf_finalstring(ft_string_aux_string(c, e), e);

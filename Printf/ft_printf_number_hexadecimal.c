@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:27:44 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/22 16:39:14 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/24 15:40:22 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,12 @@ void	ft_printf_number_hexadecimal(t_printf *e)
 	char				*str_aux;
 	int					is_negative;
 
+	if (e->w < 0)
+	{
+		e->w = e->w * -1;
+		e->text_left = 1;
+		e->text_zero = 0;
+	}
 	str_aux = 0;
 	is_negative = 0;
 	i = 0;

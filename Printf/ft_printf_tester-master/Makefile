@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edramire <edramire@student.42.fr>          +#+  +:+       +#+         #
+#    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 23:40:46 by edramire          #+#    #+#              #
-#    Updated: 2020/01/22 17:12:44 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/24 15:43:10 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CREATE = create_main
 FLAGS = -Wall -Wextra -Werror
 CC = gcc $(FLAGS)
 LIBS := -I $(FTPRINT) -L $(FTPRINT) -l ftprintf
-#RUN := -D U -D X -D XX -D D -D I -D S -D C -D P
-RUN := -D C
+#RUN := -D S -D P
+RUN := -D D -D I -D C -D X -D XX -D U
 
 all: $(NAME)
 
