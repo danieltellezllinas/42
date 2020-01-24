@@ -6,11 +6,9 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:28:18 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/24 17:33:01 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/24 19:05:03 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libftprintf.h"
 
 #include "libftprintf.h"
 
@@ -46,6 +44,7 @@ int is_negative)
 {
 	int size_str;
 
+	is_negative = 0;
 	(e->point == 1) ? e->w = e->w - 2 : 0;
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
@@ -53,22 +52,12 @@ int is_negative)
 	size_str = e->w - e->p;
 	if (size_str > 0 && e->text_left == 0 && e->text_zero == 0)
 		ft_create_zero_and_space_memory(&str_aux, size_str, ' ', str);
-	else if (size_str > 0 && e->text_zero == 1)
-	{
-		str_aux = ft_string_create_memory(size_str, '0', str_aux);
-		if (is_negative == 1)
-		{
-			ft_memcpy(*str, *str + 1, size_str);
-			str_aux = ft_strjoin("-", str_aux);
-		}
-		*str = ft_strjoin(str_aux, *str);
-	}
 	else if (size_str > 0 && e->text_left == 1)
 	{
 		str_aux = ft_string_create_memory(size_str, ' ', str_aux);
 		*str = ft_strjoin(*str, str_aux);
 	}
-	(e->w < e->p) ? *str = ft_strjoin("0x", *str) : 0;
+	(e->w < e->p || (e->w > 0 && !e->p)) ? *str = ft_strjoin("0x", *str) : 0;
 }
 
 char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
@@ -76,7 +65,7 @@ char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
 {
 	char	*str;
 
-	i = va_arg(e->ap, unsigned int);
+	i = va_arg(e->ap, unsigned long int);
 	if (i == 0)
 	{
 		str = (!e->p) ? ft_strdup("0x") : ft_strdup("0x0");
@@ -93,20 +82,10 @@ char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
 	}
 	else
 	{
-		if (*e->fmt == 'x')
-		{
-			str = ft_convert_hex(i);
-			i = -1;
-			while (str[++i])
-				(str[i] >= 'A' && str[i] <= 'F') ? str[i] += 32 : str[i];
-		}
-		else
-			str = ft_convert_hex(i);
-		if (*str == '-')
-		{
-			is_negative = 1;
-			str++;
-		}
+		str = ft_convert_hex(i);
+		i = -1;
+		while (str[++i])
+			(str[i] >= 'A' && str[i] <= 'F') ? str[i] += 32 : str[i];
 		ft_swap(str, e, is_negative);
 		ft_all_conditionals_memory(e, str_aux, &str, is_negative);
 	}

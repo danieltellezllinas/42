@@ -3,12 +3,6 @@
 
 int main ()
 {
-    printf("%*pFIN\n", -16, (void *)0);
-    ft_printf("%*pFIN\n", -16, (void *)0);
-
-    printf("\n%*.pFIN\n", -16, (void *)0);
-    ft_printf("%*.pFIN\n", -16, (void *)0);
-
-    printf("\n%pFIN\n", (void *)0);
-    ft_printf("%pFIN\n", (void *)0);
+    printf("ORI: %p\n", (void *)0xe70d68e24);
+    ft_printf("MIO:%p\n", (void *)0xe70d68e24);
 }
