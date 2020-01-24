@@ -6,7 +6,7 @@
 #    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 23:40:46 by edramire          #+#    #+#              #
-#    Updated: 2020/01/24 15:43:10 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/24 15:44:40 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra -Werror
 CC = gcc $(FLAGS)
 LIBS := -I $(FTPRINT) -L $(FTPRINT) -l ftprintf
 #RUN := -D S -D P
-RUN := -D D -D I -D C -D X -D XX -D U
+RUN := -D D -D I -D C -D X -D XX -D U -D P
 
 all: $(NAME)
 
