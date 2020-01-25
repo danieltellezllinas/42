@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 13:37:07 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/23 12:10:38 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:59:37 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct	s_printf
 	int			point;
 	int			c_null;
 	int			string;
+	int			i_is_zero;
+	int			w_is_negative;
 }				t_printf;
 
 int				ft_printf(const char *fmt, ...);

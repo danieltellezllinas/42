@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:28:18 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/24 19:05:03 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/25 13:57:11 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int is_negative)
 	int size_str;
 
 	is_negative = 0;
-	(e->point == 1) ? e->w = e->w - 2 : 0;
+	is_negative++;
+	e->w = e->w - 2;
 	size_str = e->p - e->len_swap;
 	if (size_str > 0)
 		ft_create_zero_and_space_memory(&str_aux, size_str, '0', str);
 	size_str = e->w - e->p;
+	*str = ft_strjoin("0x", *str);
 	if (size_str > 0 && e->text_left == 0 && e->text_zero == 0)
 		ft_create_zero_and_space_memory(&str_aux, size_str, ' ', str);
 	else if (size_str > 0 && e->text_left == 1)
@@ -57,7 +59,6 @@ int is_negative)
 		str_aux = ft_string_create_memory(size_str, ' ', str_aux);
 		*str = ft_strjoin(*str, str_aux);
 	}
-	(e->w < e->p || (e->w > 0 && !e->p)) ? *str = ft_strjoin("0x", *str) : 0;
 }
 
 char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
@@ -68,6 +69,7 @@ char	*ft_string_aux_memory(t_printf *e, unsigned long int i,
 	i = va_arg(e->ap, unsigned long int);
 	if (i == 0)
 	{
+		e->i_is_zero = 1;
 		str = (!e->p) ? ft_strdup("0x") : ft_strdup("0x0");
 		if (e->w > (int)ft_strlen(str) && e->text_left == 1)
 		{
@@ -98,8 +100,10 @@ void	ft_printf_memory_direction(t_printf *e)
 	char					*str_aux;
 	int						is_negative;
 
+	e->w_is_negative = 0;
 	if (e->w < 0)
 	{
+		e->w_is_negative = 1;
 		e->w = e->w * -1;
 		e->text_left = 1;
 		e->text_zero = 0;
