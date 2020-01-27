@@ -6,7 +6,7 @@
 #    By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 15:11:07 by dtellez-          #+#    #+#              #
-#    Updated: 2020/01/22 16:21:24 by dtellez-         ###   ########.fr        #
+#    Updated: 2020/01/27 18:22:56 by dtellez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(NAME): ${OBJ}
 		ar rc ${NAME} libft/*.o ${OBJ}
 
 debug:
-		$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft
+		$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft main.c
 
 clean:
 		rm -f ${OBJ}

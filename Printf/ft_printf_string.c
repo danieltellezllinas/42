@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 18:25:42 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/24 15:19:33 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/25 14:22:56 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int is_negative)
 
 	if (e->p < 0)
 		e->p = 0;
-	size_str = e->w - e->p;
+	size_str = e->w - e->len_swap;
 	(is_negative == 1) ? size_str -= 1 : 0;
 	if (e->string == 1)
 	{
@@ -60,22 +60,20 @@ int is_negative)
 char	*ft_string_aux_string(char *c, t_printf *e)
 {
 	char	*str_aux;
-	char	*str;
 	int		is_negative;
 
-	if (e->w < 0)
-	{
-		e->w = e->w * -1;
-		e->text_left = 1;
-	}
-	if (c == NULL)
-		c = ft_strdup("(null)");
 	str_aux = 0;
 	is_negative = 0;
-	str = c;
-	ft_swap(str, e, is_negative);
-	ft_all_conditionals_string(e, str_aux, &str, is_negative);
-	return (str);
+	if (c == NULL)
+		c = ft_strdup("(null)");
+	if (*c == '-')
+	{
+		is_negative = 1;
+		c++;
+	}
+	ft_swap(c, e, is_negative);
+	ft_all_conditionals_string(e, str_aux, &c, is_negative);
+	return (c);
 }
 
 void	ft_printf_string(t_printf *e)
@@ -86,6 +84,7 @@ void	ft_printf_string(t_printf *e)
 	{
 		e->w = e->w * -1;
 		e->text_left = 1;
+		e->text_zero = 0;
 	}
 	e->string = 1;
 	c = va_arg(e->ap, char*);

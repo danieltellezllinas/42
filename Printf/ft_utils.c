@@ -6,7 +6,7 @@
 /*   By: dtellez- <dtellez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 03:46:38 by dtellez-          #+#    #+#             */
-/*   Updated: 2020/01/24 15:16:57 by dtellez-         ###   ########.fr       */
+/*   Updated: 2020/01/27 18:28:50 by dtellez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ void	ft_reset_values(t_printf *e)
 	e->text_zero = 0;
 	e->now_break = 0;
 	e->c_null = 0;
+	e->str_cpy_hex = NULL;
+	e->str_hex = NULL;
+	e->point = 0;
+	e->string = 0;
+	e->i_is_zero = 0;
+	e->w_is_negative = 0;
 }
